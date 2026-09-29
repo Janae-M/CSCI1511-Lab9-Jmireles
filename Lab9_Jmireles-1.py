@@ -12,9 +12,17 @@ def main():
     player1 = Player("Player 1")
     player2 = Player("Player 2")
 
-    play_again = 'y'
+    print("--- Coin Match Game ---")
+    print(player1.get_name(), "has", player1.get_wallet(), "coins.")  
+    print(player2.get_name(), "has", player2.get_wallet(), "coins.")
+    print()
+
+    play_again = input("Do you want to toss the coins? (y/n): ")
 
     while play_again == 'y' or play_again == 'Y':
+
+        print()
+        print("Tossing...")
 
         player1.toss_coin()
         player2.toss_coin()
@@ -30,6 +38,32 @@ def main():
             player1.win_coin()
             player2.lose_coin()
 
-            print(player1.get_name() "won the round!")
-            
+            print("...It's a match! Player 1 wins a coin.")
 
+        else:
+
+            player2.win_coin()
+            player1.lose_coin()
+
+            print("...No Match! Player 2 wins a coin.")
+
+        print()
+        print(player1.get_name(), "has", player1.get_wallet(), "coins.")
+        print(player2.get_name(), "has", player2.get_wallet(), "coins.")
+        print()
+
+        play_again = input("Do you want to toss the coins? (y/n): ")
+
+    print()
+    print("--- Final Score ---")
+    print("Player 1:", player1.get_wallet())
+    print("Player 2:", player2.get_wallet())
+
+    if player1.get_wallet() > player2.get_wallet():
+        print("Player 1 wins!")
+    elif player2.get_wallet() > player1.get_wallet():
+        print("Player 2 wins!")
+    else:
+        print("It's a draw!")
+
+main()
