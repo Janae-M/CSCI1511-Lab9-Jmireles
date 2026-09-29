@@ -11,7 +11,7 @@ class Player:
     def __init__(self, name):
         self.__name = name
         self.__wallet = 20
-        self.__coinn = Coin()
+        self.__coin = Coin()
 
     def toss_coin(self):
         self.__coin.toss()
